@@ -77,17 +77,17 @@ export default function Profile() {
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-black">Mon Profil</h1>
+            <h1 className="text-3xl font-black">My Profil</h1>
             <p className="text-gray-400 text-sm mt-1">{email}</p>
           </div>
           <div className="flex gap-3">
             <button onClick={() => router.push("/")}
               className="bg-cyan-500 hover:bg-cyan-400 text-black font-bold px-4 py-2 rounded-xl transition text-sm">
-              Jouer
+              Play
             </button>
             <button onClick={handleLogout}
               className="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-xl transition text-sm">
-              Déconnexion
+              Logout
             </button>
           </div>
         </div>
@@ -95,9 +95,9 @@ export default function Profile() {
         {/* Stats globales */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           {[
-            { label: "Parties", value: totalGames, color: "text-white" },
-            { label: "Victoires", value: wins, color: "text-green-400" },
-            { label: "Défaites", value: losses, color: "text-red-400" },
+            { label: "Games", value: totalGames, color: "text-white" },
+            { label: "Wins", value: wins, color: "text-green-400" },
+            { label: "Losses", value: losses, color: "text-red-400" },
             { label: "Win Rate", value: `${winRate}%`, color: "text-cyan-400" },
           ].map(({ label, value, color }) => (
             <div key={label} className="bg-gray-900 rounded-2xl p-4 border border-gray-800 text-center">
@@ -109,7 +109,7 @@ export default function Profile() {
 
         {/* Geste favori */}
         <div className="bg-gray-900 rounded-2xl p-6 border border-gray-800 mb-6">
-          <h2 className="text-lg font-bold mb-4">Tes gestes</h2>
+          <h2 className="text-lg font-bold mb-4">Your Gestures</h2>
           <div className="flex gap-6 items-center">
             {Object.entries(totalMoves).map(([gesture, count]) => (
               <div key={gesture} className="flex-1 text-center">
@@ -127,7 +127,7 @@ export default function Profile() {
         {/* Graphique évolution */}
         {chartData.length > 1 && (
           <div className="bg-gray-900 rounded-2xl p-6 border border-gray-800 mb-6">
-            <h2 className="text-lg font-bold mb-4">Évolution du win rate</h2>
+            <h2 className="text-lg font-bold mb-4">Win Rate Evolution</h2>
             <ResponsiveContainer width="100%" height={200}>
               <LineChart data={chartData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
@@ -142,9 +142,9 @@ export default function Profile() {
 
         {/* Historique récent */}
         <div className="bg-gray-900 rounded-2xl p-6 border border-gray-800">
-          <h2 className="text-lg font-bold mb-4">Dernières parties</h2>
+          <h2 className="text-lg font-bold mb-4">Recent Games</h2>
           {recent.length === 0 ? (
-            <p className="text-gray-400">Aucune partie jouée pour l'instant.</p>
+            <p className="text-gray-400">No games played yet.</p>
           ) : (
             <div className="space-y-3">
               {recent.map((g) => (
