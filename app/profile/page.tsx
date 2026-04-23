@@ -117,7 +117,7 @@ export default function Profile() {
                 <div className="text-xl font-bold">{totalMovesCount > 0 ? Math.round((count / totalMovesCount) * 100) : 0}%</div>
                 <div className="text-gray-400 text-sm capitalize">{gesture}</div>
                 {gesture === favGesture && (
-                  <div className="text-xs text-cyan-400 mt-1">⭐ Favori</div>
+                  <div className="text-xs text-cyan-400 mt-1">⭐ Favorite</div>
                 )}
               </div>
             ))}
@@ -131,7 +131,7 @@ export default function Profile() {
             <ResponsiveContainer width="100%" height={200}>
               <LineChart data={chartData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
-                <XAxis dataKey="game" stroke="#9ca3af" fontSize={12} label={{ value: "Parties", position: "insideBottom", offset: -2, fill: "#9ca3af" }} />
+                <XAxis dataKey="game" stroke="#9ca3af" fontSize={12} label={{ value: "Games", position: "insideBottom", offset: -2, fill: "#9ca3af" }} />
                 <YAxis stroke="#9ca3af" fontSize={12} domain={[0, 100]} tickFormatter={(v) => `${v}%`} />
                 <Tooltip formatter={(v) => `${v}%`} contentStyle={{ backgroundColor: "#1f2937", border: "none", borderRadius: "8px" }} />
                 <Line type="monotone" dataKey="winRate" stroke="#06b6d4" strokeWidth={2} dot={false} />
